@@ -3,8 +3,8 @@
   "productName": "Electron",
   "private": true,
   "version": "2.1.0",
-  "description": "Vite React Electron boilerplate.",
-  "author": "草鞋没号 <308487730@qq.com>",
+  "description": "Vite Preact Electron boilerplate.",
+  "author": "CM-IV <chuck@civdev.xyz>",
   "license": "MIT",
   "main": "dist-electron/electron/main/index.js",
   "scripts": {
@@ -14,20 +14,16 @@
   "engines": {
     "node": "^14.18.0 || >=16.0.0"
   },
-  "dependencies": {},
   "devDependencies": {
-    "@types/react": "^18.0.21",
-    "@types/react-dom": "^18.0.6",
-    "@vitejs/plugin-react": "^2.1.0",
+    "@preact/preset-vite": "^2.4.0",
     "electron": "^21.1.0",
     "electron-builder": "^23.3.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "preact": "^10.11.2",
     "sass": "^1.55.0",
     "typescript": "^4.8.4",
     "vite": "^3.1.4",
     "vite-electron-plugin": "^0.4.6",
-    "vite-plugin-electron-renderer": "^0.10.1"
+    "wouter-preact": "2.8.0-alpha.2"
   },
   "debug": {
     "env": {

@@ -1,10 +1,9 @@
 import { rmSync } from 'fs'
 import path from 'path'
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import preact from '@preact/preset-vite'
 import electron from 'vite-electron-plugin'
 import { customStart } from 'vite-electron-plugin/plugin'
-import renderer from 'vite-plugin-electron-renderer'
 import pkg from './package.json'
 
 rmSync(path.join(__dirname, 'dist-electron'), { recursive: true, force: true })
@@ -18,7 +17,7 @@ export default defineConfig({
     },
   },
   plugins: [
-    react(),
+    preact(),
     electron({
       include: [
         'electron',
@@ -31,9 +30,6 @@ export default defineConfig({
       plugins: process.env.VSCODE_DEBUG
         ? [customStart(debounce(() => console.log(/* For `.vscode/.debug.script.mjs` */'[startup] Electron App')))]
         : undefined,
-    }),
-    renderer({
-      nodeIntegration: true,
     }),
   ],
   server: process.env.VSCODE_DEBUG ? (() => {
