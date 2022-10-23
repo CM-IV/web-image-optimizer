@@ -1,26 +1,39 @@
-# electron-vite-preact
+# Web Image Optimizer
 
-[![Required Node.JS >= 14.18.0 || >=16.0.0](https://img.shields.io/static/v1?label=node&message=14.18.0%20||%20%3E=16.0.0&logo=node.js&color=3f893e)](https://nodejs.org/about/releases)
+![](https://i.ibb.co/NpmDcR3/wio.webp)
+
+[![Required Node.JS >= v14.17.0](https://img.shields.io/static/v1?label=node&message=%3E=14.17.0&logo=node.js&color=3f893e&style=flat)](https://nodejs.org/about/releases)
 
 ## 👀 Overview
 
-📦 Ready out of the box  
+📦 Ready for Linux out of the box
+
+🎯 Based on the official [preact-ts](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-preact-ts) template, project structure will be familiar to you  
+
 🌱 Easily extendable and customizable  
-💪 Does NOT support Node.js API in the renderer process  
+
+💪 Defacto does NOT support Node.js API in the renderer process, Node.js is implemented in the backend with security in mind
+
 🔩 Supports C/C++ native addons  
-🐞 Debugger configuration included  
+
 🖥 Easy to implement multiple windows  
 
-## 🛫 Quick start
+## 🛫 Quick development
 
 ```sh
-pnpm install && pnpm run dev
+npm run dev
 ```
+
+## 🛫 Build and generate AppImage
+```sh
+npm run build
+```
+
 
 ## 📂 Directory structure
 
 Familiar Preact application structure, just with `electron` folder on the top :wink:  
-*Files in this folder will be separated from your React application and built into `dist/electron`*  
+*Files in this folder will be separated from your Preact application and built into `dist/electron`*  
 
 ```tree
 ├── electron                  Electron-related code
@@ -30,9 +43,7 @@ Familiar Preact application structure, just with `electron` folder on the top :w
 │       ├── icon.icns             Icon for the application on macOS
 │       ├── icon.ico              Icon for the application
 │       ├── installerIcon.ico     Icon for the application installer
-│       ├── uninstallerIcon.ico   Icon for the application uninstaller
-|       └── iconset               
-|           └── 256x256.png       Icon for the application on Linux
+│       └── uninstallerIcon.ico   Icon for the application uninstaller
 │
 ├── release                   Generated after production build, contains executables
 │   └── {version}
@@ -40,12 +51,12 @@ Familiar Preact application structure, just with `electron` folder on the top :w
 │       └── Setup.{ext}       Installer for the application
 │
 ├── public                    Static assets
-└── src                       Renderer source code, your React application
+└── src                       Renderer source code, your Preact application
 ```
 
 ## 🚨 Be aware
 
-This template does NOT integrate the Node.js API in the renderer process by default according to **Electron Security Concerns**. You will have to expose the needed API by yourself.
+This project does NOT integrate the Node.js API in the renderer process by default. If you DO NOT want to follow **Electron Security Concerns**, you might want to enable Node Integration. This way you will NOT have to expose the needed API by yourself.  
 
 ## ❔ FAQ
 
