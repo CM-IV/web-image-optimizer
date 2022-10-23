@@ -1,3 +1,37 @@
+import { contextBridge, ipcRenderer } from 'electron';
+
+//No frontend NodeJS integration (that's cheating)
+const API = {
+
+  //Send image info to main process from renderer to be optimized.
+  loadShrinkImg: (imageQuality: number) => {
+    ipcRenderer.send("shrink-message", {
+      imageQuality
+    });
+  },
+
+  //Receive message from main process to be displayed on renderer.
+  resShrinkImg: (callback: (event: Electron.IpcRendererEvent, ...args: any[]) => void) => {
+    ipcRenderer.on("shrinkRes", callback)
+  },
+
+  //Send image info to main process from renderer to be converted to WebP.
+  loadConvertImg: () => {
+    ipcRenderer.send("convert-message");
+  },
+
+  //Receive message from main process to be displayed on renderer.
+  resConvertImg: (callback: (event: Electron.IpcRendererEvent, ...args: any[]) => void) => {
+    ipcRenderer.on("convertRes", callback)
+  },
+}
+
+contextBridge.exposeInMainWorld("api", API);
+
+
+//-----------------------------------------------------------------------------------
+
+
 function domReady(condition: DocumentReadyState[] = ['complete', 'interactive']) {
   return new Promise(resolve => {
     if (condition.includes(document.readyState)) {

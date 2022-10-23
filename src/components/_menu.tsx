@@ -1,11 +1,13 @@
+
 import { Fragment } from "preact";
 import { Link } from "wouter-preact";
 
-const Nav = () => {
+const Menu = () => {
   return (
     <Fragment>
       <div id="boxMenu" class="box">
         <aside class="menu is-3">
+          <p class="menu-label has-text-white">Admin</p>
           <ul class="menu-list">
             <li>
               <Link to={"/"} id="menuButton" class="menu-item has-text-white">
@@ -13,8 +15,13 @@ const Nav = () => {
               </Link>
             </li>
             <li>
-              <Link to={"/test-page"} id="menuButton" class="menu-item has-text-white">
-                Test
+              <Link to={"/optimize"} id="menuButton" class="menu-item has-text-white">
+                Optimize Photo
+              </Link>
+            </li>
+            <li>
+              <Link to={"/convert"} id="menuButton" class="menu-item has-text-white">
+                Convert Photo
               </Link>
             </li>
           </ul>
@@ -24,4 +31,4 @@ const Nav = () => {
   );
 };
 
-export { Nav };
+export { Menu };

@@ -1,0 +1,43 @@
+@import "./bulma.min.css";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #2c5d63;
+  height: 100vh;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#greetHero {
+  background: #6c5b7c;
+}
+
+#shrinkHero {
+  background: #264e70;
+}
+
+#convertHero {
+  background: #40356f;
+}
+
+#boxMenu {
+  background: #c06c84;
+}
+
+#greetBox {
+  background: #34495e;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}

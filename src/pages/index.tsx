@@ -1,4 +1,4 @@
-import { Greet } from "@/components/greet"
+import { Greet } from "@/components/_greet"
 import { MainLayout } from "@/layout/MainLayout"
 
 const Home = () => {
@@ -10,5 +10,5 @@ const Home = () => {
     )
   }
   
-  export default Home
+  export { Home }
   

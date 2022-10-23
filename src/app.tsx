@@ -1,9 +1,9 @@
-import { Route, Switch, Router } from "wouter-preact"
-import Home from "./pages";
-import TestPage from "./pages/testPage";
+import { Route, Switch, Router } from "wouter-preact";
+import { Home } from "./pages/index";
+import { ShrinkPhotoPage } from "./pages/shrinkPhoto";
+import { ConvertPhotoPage } from "./pages/convertPhoto";
 import { NotFound } from "./pages/_404";
-import { useState, useEffect } from "preact/hooks";
-
+import { useState, useEffect } from "preact/hooks"
 
 
 const App = () => {
@@ -32,15 +32,21 @@ const App = () => {
   };
 
   return (
+    
+    //Need history observer for hash based routes
+    //Weird type error here
     /*@ts-ignore*/
     <Router hook={useHashLocation}>
       <Switch>
-        <Route path="/" component={Home}/>
-        <Route path="/test-page" component={TestPage}/>
-        <Route component={NotFound}/>
+        <Route path="/" component={Home}></Route>
+        <Route path="/optimize" component={ShrinkPhotoPage}></Route>
+        <Route path="/convert" component={ConvertPhotoPage}></Route>
+        <Route component={NotFound}></Route>
       </Switch>
     </Router>
+
   )
+
 }
 
-export default App
+export default App;

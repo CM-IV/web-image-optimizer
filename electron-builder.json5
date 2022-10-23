@@ -2,8 +2,8 @@
  * @see https://www.electron.build/configuration/configuration
  */
 {
-  appId: "YourAppID",
-  productName: "YourAppName",
+  appId: "image-optimizer",
+  productName: "Web Image Optimizer",
   copyright: "Copyright © 2022 ${author}",
   asar: true,
   directories: {
@@ -21,13 +21,20 @@
         arch: ["x64"],
       },
     ],
-    artifactName: "${productName}-Windows-${version}-Setup.${ext}",
+    icon: "256x256.ico",
+    asarUnpack: [
+      "**/node_modules/sharp/**"
+    ],
+    artifactName: "${productName}-Windows-Setup.${ext}",
   },
   nsis: {
     oneClick: false,
-    perMachine: false,
+    installerIcon: "256x256.ico",
+    uninstallerIcon: "256x256.ico",
+    uninstallDisplayName: "Uninstall Web Image Optimizer",
     allowToChangeInstallationDirectory: true,
-    deleteAppDataOnUninstall: false,
+    deleteAppDataOnUninstall: true,
+    license: "LICENSE"
   },
   mac: {
     target: ["dmg"],
@@ -36,6 +43,9 @@
   linux: {
     icon: "electron/resources/iconset",
     target: ["AppImage"],
-    artifactName: "${productName}-Linux-${version}.${ext}",
+    asarUnpack: [
+      "**/node_modules/sharp/**"
+    ],
+    artifactName: "${productName}.${ext}",
   },
 }
