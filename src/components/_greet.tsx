@@ -8,6 +8,10 @@ const Greet = () => {
         window.open("https://home.civdev.xyz", "_blank", "nodeIntegration=no")
     }
 
+    const openGithub = () => {
+        window.open("https://github.com/CM-IV/web-image-optimizer", "_blank", "nodeIntegration=no")
+    }
+
     return (
         <Fragment>
             <section class="hero" id="greetHero">
@@ -24,7 +28,8 @@ const Greet = () => {
                     
                     <hr />
 
-                    <p class="has-text-white">Made by<Link to="#" onClick={openWebsite}> CM-IV</Link></p>
+                    <p class="has-text-white"><Link to="#" onClick={openWebsite}> CM-IV</Link></p>
+                    <p class="has-text-white"><Link to="#" onClick={openGithub}>GitHub Source</Link></p>
                 </div>
             </section>
         </Fragment>
